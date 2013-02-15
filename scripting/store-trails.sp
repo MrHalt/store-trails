@@ -110,6 +110,25 @@ public OnLibraryRemoved(const String:name[])
 }
 
 /**
+ * Map is starting
+ */
+public OnMapStart()
+{
+	for (new item = 0; item < g_trailsCount; item++)
+	{
+		if (strcmp(g_trails[item][TrailMaterial], "") != 0 && (FileExists(g_trails[item][TrailMaterial]) || FileExists(g_trails[item][TrailMaterial], true)))
+		{
+			decl String:_sBuffer[PLATFORM_MAX_PATH];
+			strcopy(_sBuffer, sizeof(_sBuffer), g_trails[item][TrailMaterial]);
+			g_trails[item][TrailModelIndex] = PrecacheModel(_sBuffer);
+			AddFileToDownloadsTable(_sBuffer);
+			ReplaceString(_sBuffer, sizeof(_sBuffer), ".vmt", ".vtf", false);
+			AddFileToDownloadsTable(_sBuffer);
+		}
+	}
+}
+
+/**
  * The map is ending.
  */
 public OnMapEnd()
