@@ -114,7 +114,7 @@ public OnLibraryRemoved(const String:name[])
  */
 public OnMapStart()
 {
-	for (new item = 0; item < g_trailsCount; item++)
+	for (new item = 0; item < g_trailCount; item++)
 	{
 		if (strcmp(g_trails[item][TrailMaterial], "") != 0 && (FileExists(g_trails[item][TrailMaterial]) || FileExists(g_trails[item][TrailMaterial], true)))
 		{
