@@ -202,14 +202,14 @@ public Store_ItemUseAction:OnEquip(client, itemId, bool:equipped)
 	
 	if (!IsPlayerAlive(client))
 	{
-		PrintToChat(client, "%s%t", STORE_PREFIX, "Must be alive to equip");
-		return Store_DoNothing;
+		PrintToChat(client, "%s%t", STORE_PREFIX, "Equipped item apply next spawn");
+		return Store_EquipItem;
 	}
-	
+
 	if (g_zombieReloaded && !ZR_IsClientHuman(client))
 	{
-		PrintToChat(client, "%s%t", STORE_PREFIX, "Must be human to equip");	
-		return Store_DoNothing;
+		PrintToChat(client, "%s%t", STORE_PREFIX, "Equipped item apply next spawn");	
+		return Store_EquipItem;
 	}
 	
 	decl String:name[STORE_MAX_NAME_LENGTH];
