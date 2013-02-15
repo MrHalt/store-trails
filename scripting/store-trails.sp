@@ -54,7 +54,7 @@ public Plugin:myinfo =
 	name        = "[Store] Trails",
 	author      = "alongub",
 	description = "Trails component for [Store]",
-	version     = STORE_VERSION,
+	version     = "1.1-alpha",
 	url         = "https://github.com/alongubkin/store"
 };
 
