@@ -22,7 +22,7 @@ enum Trail
 }
 
 new g_trails[1024][Trail];
-new g_trailCount = 0;
+new g_trailCount;
 new bool:g_zombieReloaded;
 
 new String:g_game[32];
@@ -73,11 +73,6 @@ public OnPluginStart()
 	HookEvent("player_team", PlayerTeam);
 	HookEvent("round_end", RoundEnd);
 
-	for (new index = 1; index <= MaxClients; index++)
-	{
-		g_SpriteModel[index] = -1;
-	}
-
 	GetGameFolderName(g_game, sizeof(g_game));
 
 	Store_RegisterItemType("trails", OnEquip, LoadItem);
@@ -114,6 +109,11 @@ public OnLibraryRemoved(const String:name[])
  */
 public OnMapStart()
 {
+	for (new client = 1; client <= MaxClients; client++)
+	{
+		g_SpriteModel[client] = -1;
+	}
+
 	for (new item = 0; item < g_trailCount; item++)
 	{
 		if (strcmp(g_trails[item][TrailMaterial], "") != 0 && (FileExists(g_trails[item][TrailMaterial]) || FileExists(g_trails[item][TrailMaterial], true)))
