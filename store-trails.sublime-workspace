@@ -43,7 +43,7 @@
 			"file": "scripting/store-trails.sp",
 			"settings":
 			{
-				"buffer_size": 12333,
+				"buffer_size": 12922,
 				"line_ending": "Windows"
 			}
 		}
@@ -156,6 +156,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"addfiletodownloadlist",
+			"PrecacheModel",
+			"printtoserver",
+			"g_trailCount = 0",
 			"EquipmentModelPath",
 			"g_skinsCount",
 			"g_equipment",
@@ -279,11 +283,7 @@
 			"json_object_get",
 			"json_object_get_string",
 			"json_object_get_float",
-			"json_array_get_float",
-			"position",
-			"g_SpriteModel",
-			"150",
-			"AddTrail"
+			"json_array_get_float"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -309,15 +309,15 @@
 					"file": "scripting/store-trails.sp",
 					"settings":
 					{
-						"buffer_size": 12333,
+						"buffer_size": 12922,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1337,
-								1337
+								5820,
+								5824
 							]
 						],
 						"settings":
@@ -326,7 +326,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4589.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
