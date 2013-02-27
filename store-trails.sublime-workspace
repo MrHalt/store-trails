@@ -43,7 +43,15 @@
 			"file": "scripting/store-trails.sp",
 			"settings":
 			{
-				"buffer_size": 12922,
+				"buffer_size": 12860,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "scripting/include/store/store-core.inc",
+			"settings":
+			{
+				"buffer_size": 1573,
 				"line_ending": "Windows"
 			}
 		}
@@ -309,15 +317,15 @@
 					"file": "scripting/store-trails.sp",
 					"settings":
 					{
-						"buffer_size": 12922,
+						"buffer_size": 12860,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5820,
-								5824
+								9223,
+								9223
 							]
 						],
 						"settings":
@@ -326,7 +334,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4589.0,
+						"translation.y": 5476.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripting/include/store/store-core.inc",
+					"settings":
+					{
+						"buffer_size": 1573,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								160,
+								160
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SourcePawn/sourcepawn.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

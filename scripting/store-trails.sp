@@ -375,6 +375,9 @@ bool:Equip(client, const String:name[])
 		return false;
 	}
 
+	if (!EquipTrail(client, trail))
+		return false;
+
 	if (StrEqual(g_game, "csgo"))
 	{
 		EquipTrailTempEnts(client, trail);
@@ -384,20 +387,14 @@ bool:Equip(client, const String:name[])
 
 		WritePackCell(pack, GetClientSerial(client));
 		WritePackCell(pack, trail);
+	}
 
-		return true;
-	}
-	else
-	{
-		return EquipTrail(client, trail);
-	}
+	return true;
 }
 
 bool:EquipTrailTempEnts(client, trail)
 {
-	new entityToFollow = GetPlayerWeaponSlot(client, 2);
-	if (entityToFollow == -1)
-		entityToFollow = client;
+	new entityToFollow = g_SpriteModel[client];
 
 	new color[4];
 	Array_Copy(g_trails[client][TrailColor], color, sizeof(color));

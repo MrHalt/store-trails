@@ -4,7 +4,7 @@
 #define _store_core_included
 
 #define STORE_VERSION "1.0.7-alpha"
-#define STORE_PREFIX "\x04[Store] \x01"
+#define STORE_PREFIX "\x072267F2[Zold] \x01"
 
 funcenum Store_MenuItemClickCallback
 {
