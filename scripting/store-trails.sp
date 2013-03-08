@@ -397,7 +397,7 @@ bool:EquipTrailTempEnts(client, trail)
 	new entityToFollow = g_SpriteModel[client];
 
 	new color[4];
-	Array_Copy(g_trails[client][TrailColor], color, sizeof(color));
+	Array_Copy(g_trails[trail][TrailColor], color, sizeof(color));
 
 	TE_SetupBeamFollow(entityToFollow, 
 						g_trails[trail][TrailModelIndex], 
