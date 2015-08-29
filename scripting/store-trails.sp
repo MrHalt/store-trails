@@ -4,7 +4,7 @@
 #include <sdktools>
 #include <sdkhooks>
 #include <store>
-#include <smjansson>
+#include <EasyJSON>
 
 #undef REQUIRE_PLUGIN
 #include <zombiereloaded>
