@@ -8,7 +8,7 @@ Store module that allows players to buy custom trails in the store.
 
 * [Store](https://forums.alliedmods.net/showthread.php?t=207157)
 * [SDKHooks](http://forums.alliedmods.net/showthread.php?t=106748) 
-* [SMJansson](https://forums.alliedmods.net/showthread.php?t=184604)
+* [EasyJSON](https://github.com/motdgd/motdgd-sourcemod/blob/master/addons/sourcemod/scripting/include/EasyJSON.inc)
 
 ### Features
 
