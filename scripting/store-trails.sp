@@ -325,13 +325,13 @@ public Action:GiveTrail(Handle:timer, any:serial)
 	if (g_zombieReloaded && !ZR_IsClientHuman(client))
 		return Plugin_Continue;
 		
-	Store_GetEquippedItemsByType(GetSteamAccountID(client), "trails", Store_GetClientLoadout(client), OnGetPlayerTrail, GetClientSerial(client));
+	Store_GetEquippedItemsByType(GetSteamAccountID(client), "trails", Store_GetClientCurrentLoadout(client), OnGetPlayerTrail, GetClientSerial(client));
 	return Plugin_Handled;
 }
 
 public Store_OnClientLoadoutChanged(client)
 {
-	Store_GetEquippedItemsByType(GetSteamAccountID(client), "trails", Store_GetClientLoadout(client), OnGetPlayerTrail, GetClientSerial(client));
+	Store_GetEquippedItemsByType(GetSteamAccountID(client), "trails", Store_GetClientCurrentLoadout(client), OnGetPlayerTrail, GetClientSerial(client));
 }
 
 public OnGetPlayerTrail(ids[], count, any:serial)
