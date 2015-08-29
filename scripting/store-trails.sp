@@ -160,41 +160,32 @@ public LoadItem(const String:itemName[], const String:attrs[])
 		
 	SetTrieValue(g_trailsNameIndex, g_trails[g_trailCount][TrailName], g_trailCount);
 	
-	new Handle:json = json_load(attrs);
-	json_object_get_string(json, "material", g_trails[g_trailCount][TrailMaterial], PLATFORM_MAX_PATH);
+	new Handle:json = DecodeJSON(attrs);
+	JSONGetString(json, "material", g_trails[g_trailCount][TrailMaterial], PLATFORM_MAX_PATH);
 
-	g_trails[g_trailCount][TrailLifetime] = json_object_get_float(json, "lifetime")
-	; 
-	if (g_trails[g_trailCount][TrailLifetime] == 0.0)
+	if (!JSONGetFloat(json, "lifetime", g_trails[g_trailCount][TrailLifetime]) || g_trails[g_trailCount][TrailLifetime] == 0.0)
 		g_trails[g_trailCount][TrailLifetime] = 1.0;
 
-	g_trails[g_trailCount][TrailWidth] = json_object_get_float(json, "width");
-
-	if (g_trails[g_trailCount][TrailWidth] == 0.0)
+	if (!JSONGetFloat(json, "width", g_trails[g_trailCount][TrailWidth]) || g_trails[g_trailCount][TrailWidth] == 0.0)
 		g_trails[g_trailCount][TrailWidth] = 15.0;
 
-	g_trails[g_trailCount][TrailEndWidth] = json_object_get_float(json, "endwidth"); 
-
-	if (g_trails[g_trailCount][TrailEndWidth] == 0.0)
+	if (!JSONGetFloat(json, "endwidth", g_trails[g_trailCount][TrailEndWidth]) || g_trails[g_trailCount][TrailEndWidth] == 0.0)
 		g_trails[g_trailCount][TrailEndWidth] = 6.0;
 
-	g_trails[g_trailCount][TrailFadeLength] = json_object_get_int(json, "fadelength"); 
-
-	if (g_trails[g_trailCount][TrailFadeLength] == 0)
+	if (!JSONGetInteger(json, "fadelength", g_trails[g_trailCount][TrailFadeLength]) || g_trails[g_trailCount][TrailFadeLength] == 0)
 		g_trails[g_trailCount][TrailFadeLength] = 1;
 
-	new Handle:color = json_object_get(json, "color");
+	new Handle:color = INVALID_HANDLE;
 
-	if (color == INVALID_HANDLE)
+	if (!JSONGetArray(json, "color", color) || color == INVALID_HANDLE)
 	{
-		g_trails[g_trailCount][TrailColor] = { 255, 255, 255, 255 };
+		g_trails[g_trailCount][TrailColor] = {255, 255, 255, 255};
 	}
 	else
 	{
 		for (new i = 0; i < 4; i++)
-			g_trails[g_trailCount][TrailColor][i] = json_array_get_int(color, i);
-
-		CloseHandle(color);
+			if (!JSONGetArrayInteger(color, i, g_trails[g_trailCount][TrailColor][i]))
+				g_trails[g_trailCount][TrailColor][i] = 255;
 	}
 
 	CloseHandle(json);
